@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="47d-Pz-XCA">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="b" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5mx-03-HfA">
+                                <rect key="frame" x="0.0" y="200" width="375" height="300"/>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OI0-TM-DJC">
+                                <rect key="frame" x="0.0" y="28" width="375" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="3zI-uM-RLq"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageview" destination="5mx-03-HfA" id="55P-le-ABT"/>
+                        <outlet property="progressView" destination="OI0-TM-DJC" id="Ibw-Oa-BW1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3868.5" y="-597.5"/>
+        </scene>
+        <!--View Controller3-->
+        <scene sceneID="Rrl-01-u6B">
+            <objects>
+                <viewController storyboardIdentifier="d" id="xMA-Yb-DfE" customClass="ViewController3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wOL-x6-1Zz"/>
+                        <viewControllerLayoutGuide type="bottom" id="mMT-ZH-Vuf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hLD-M9-7Gk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nYT-Jr-1SN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4319" y="-1308"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="Xkw-RB-L6c">
+            <objects>
+                <viewController storyboardIdentifier="c" id="XnG-ls-MnE" customClass="ViewController2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XIR-NK-nxq"/>
+                        <viewControllerLayoutGuide type="bottom" id="PPF-hv-vNp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hF8-jp-0QD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入歌曲名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y4o-ft-rky">
+                                <rect key="frame" x="83" y="40" width="208" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdi-a8-1Xg">
+                                <rect key="frame" x="245" y="91" width="46" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="搜索"/>
+                                <state key="normal" title="搜索"/>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6AY-Ex-Vg4">
+                                <rect key="frame" x="88" y="81" width="199" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="bt" destination="Vdi-a8-1Xg" id="PJu-ma-ZMs"/>
+                        <outlet property="progressView" destination="6AY-Ex-Vg4" id="oam-R2-scL"/>
+                        <outlet property="textfield" destination="y4o-ft-rky" id="BLj-Or-llH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nyb-RD-w75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3624.5" y="-1307.5"/>
+        </scene>
+        <!--View Controller1-->
+        <scene sceneID="THD-gq-FXr">
+            <objects>
+                <viewController storyboardIdentifier="a" id="47d-Pz-XCA" customClass="ViewController1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PdS-pd-odA"/>
+                        <viewControllerLayoutGuide type="bottom" id="r9Y-0D-4f2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5S8-vV-wq0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLV-6l-NfS">
+                                <rect key="frame" x="257" y="372" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="66"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="sounds:" destination="47d-Pz-XCA" eventType="touchUpInside" id="dFx-9T-Be9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4I-dt-LHF">
+                                <rect key="frame" x="59" y="534" width="50" height="40"/>
+                                <state key="normal" title="Button" image="1.PNG"/>
+                                <connections>
+                                    <action selector="ButtonAction:" destination="47d-Pz-XCA" eventType="touchUpInside" id="2lX-Le-XR6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnQ-lP-TXZ">
+                                <rect key="frame" x="257" y="534" width="50" height="40"/>
+                                <state key="normal" title="Button" image="2.PNG"/>
+                                <connections>
+                                    <action selector="ButtonAction:" destination="47d-Pz-XCA" eventType="touchUpInside" id="c2n-7b-vYA"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YtT-5m-vzG">
+                                <rect key="frame" x="59" y="503" width="250" height="2"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="027-r9-BE8" appends="YES" id="nSf-Sk-Tdi"/>
+                                </connections>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nag-vA-6fU">
+                                <rect key="frame" x="158" y="534" width="50" height="40"/>
+                                <state key="normal" title="Button" image="play.PNG"/>
+                                <connections>
+                                    <action selector="playButtonAction:" destination="47d-Pz-XCA" eventType="touchUpInside" id="Ipl-cv-txx"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="99S-hh-mbD">
+                                <rect key="frame" x="63" y="164" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-v1-9lg">
+                                <rect key="frame" x="102" y="20" width="171" height="103"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXy-6x-dm9">
+                                <rect key="frame" x="69" y="372" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="66"/>
+                                <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="sounds:" destination="47d-Pz-XCA" eventType="touchUpInside" id="49C-4l-RX3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="99S-hh-mbD" id="VMN-Iq-sgx"/>
+                        <outlet property="last" destination="E4I-dt-LHF" id="ytc-EE-3Jg"/>
+                        <outlet property="next" destination="qnQ-lP-TXZ" id="zvJ-Jw-eK6"/>
+                        <outlet property="play" destination="nag-vA-6fU" id="7C8-gP-wgD"/>
+                        <outlet property="progressview" destination="YtT-5m-vzG" id="tjK-Y8-x54"/>
+                        <outlet property="songName" destination="qT4-v1-9lg" id="En9-Qq-H2v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ic-2z-ChH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="027-r9-BE8">
+                    <connections>
+                        <action selector="tapProgressBg:" destination="47d-Pz-XCA" id="pkx-Gf-OfD"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-4350.5" y="-514.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1.PNG" width="84" height="84"/>
+        <image name="2.PNG" width="90" height="79"/>
+        <image name="play.PNG" width="136" height="132"/>
+    </resources>
+</document>
