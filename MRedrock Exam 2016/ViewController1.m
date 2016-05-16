@@ -76,7 +76,7 @@
     NSData *data1 = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.jpg",docDirPath,self.array[self.index]]];
     self.imageView.image = [UIImage imageWithData:data1];
     self.voicePlayer = [[AVAudioPlayer alloc]initWithData:data error:nil];
-    NSLog(@"%@",plistPath);
+//    NSLog(@"%@",plistPath);
     self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updatePlayprogress) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
@@ -120,7 +120,14 @@
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    NSLog(@"音乐播放完成...");
+//    if (_index != self.array.count-1)
+//        _index++;
+//    else
+//        _index = 0;
+//    [self method];
+//    self.play.selected = YES;
+//    [self.voicePlayer play];
+//    NSLog(@"音乐播放完成...");
 }
 
 -(void)updatePlayprogress{

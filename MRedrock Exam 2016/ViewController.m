@@ -95,7 +95,7 @@ static int flag=1;
 }
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
-     NSLog(@"%f",totalBytesWritten/(double)totalBytesExpectedToWrite);
+//     NSLog(@"%f",totalBytesWritten/(double)totalBytesExpectedToWrite);
     [self.progressView setProgress:totalBytesWritten/(double)totalBytesExpectedToWrite];
 }
 
