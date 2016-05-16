@@ -37,6 +37,8 @@
     self.index = 0;
     [self method];
     [[NSNotificationCenter defaultCenter] addObserver: self
+    selector: @selector(play:)name: @"播放"object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self
     selector: @selector(method)name: @"下载完成"object: nil];
     // Do any additional setup after loading the view.
 }
@@ -51,6 +53,14 @@
         self.voicePlayer.numberOfLoops =-1;
     }
 }
+
+- (void)play:(NSNotification *)notifaction {
+    NSString *name = [notifaction.object valueForKey:@"row"];
+    NSInteger i = [name integerValue];
+    self.index = i;
+    [self method];
+}
+
 -(void)method{
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
@@ -76,6 +86,8 @@
     NSData *data1 = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.jpg",docDirPath,self.array[self.index]]];
     self.imageView.image = [UIImage imageWithData:data1];
     self.voicePlayer = [[AVAudioPlayer alloc]initWithData:data error:nil];
+    [self.voicePlayer prepareToPlay];
+    [self.voicePlayer play];
 //    NSLog(@"%@",plistPath);
     self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updatePlayprogress) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];

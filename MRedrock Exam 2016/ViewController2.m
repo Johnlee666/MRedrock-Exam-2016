@@ -89,7 +89,7 @@ static int flag=1;
     [list setObject:@"1" forKey:[self.contents objectForKey:@"songname"]];
     }
     [list writeToFile:plistPath atomically:YES];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"下载完成" object:self];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"下载完成" object:nil];
 }
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{

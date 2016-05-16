@@ -34,6 +34,7 @@
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
     self.list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
     self.array = [self.list allKeys];
+    [self.tableView reloadData];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.array.count;
@@ -44,10 +45,13 @@
     cell.songname.text = self.array[indexPath.row];
     return cell;
 }
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSDictionary *dict = [NSDictionary dictionaryWithObject:indexPath forKey:@"1"];
-//    [[NSNotificationCenter defaultCenter]postNotificationName:@"播放" object:nil userInfo:dict];
-//}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *string = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    NSDictionary *dict =[NSDictionary dictionaryWithObject:string forKey:@"row"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"播放" object:dict];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
