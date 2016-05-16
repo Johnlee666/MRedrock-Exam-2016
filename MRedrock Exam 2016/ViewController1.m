@@ -36,8 +36,6 @@
     [self method];
     [[NSNotificationCenter defaultCenter] addObserver: self
     selector: @selector(method)name: @"下载完成"object: nil];
-    self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updatePlayprogress) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
     // Do any additional setup after loading the view.
 }
 -(void)method{
@@ -49,13 +47,13 @@
         return;
     self.songName.text = self.array[self.index];
     NSData *data = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.mp3",docDirPath,self.array[self.index]]];
-    NSLog(@"%@",data);
+//    NSLog(@"%@",self.array[self.index]);
     NSData *data1 = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.jpg",docDirPath,self.array[self.index]]];
     self.imageView.image = [UIImage imageWithData:data1];
     self.voicePlayer = [[AVAudioPlayer alloc]initWithData:data error:nil];
-    NSLog(@"%@",plistPath);
-    [self.voicePlayer isPlaying];
-
+//    NSLog(@"%@",plistPath);
+    self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updatePlayprogress) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 -(IBAction)tapProgressBg:(UITapGestureRecognizer *)sender{
     CGPoint point = [sender locationInView:sender.view];

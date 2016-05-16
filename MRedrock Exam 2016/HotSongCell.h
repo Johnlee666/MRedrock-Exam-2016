@@ -10,7 +10,6 @@
 
 @interface HotSongCell : UITableViewCell
 //@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
-@property (weak, nonatomic) IBOutlet UIButton *bt;
 @property (weak, nonatomic) IBOutlet UILabel *singerName;
 @property (weak, nonatomic) IBOutlet UILabel *songName;
 @property (weak, nonatomic) IBOutlet UIImageView *myImageView;

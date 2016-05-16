@@ -29,14 +29,9 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-pQ-cbR">
                         <rect key="frame" x="0.0" y="0.0" width="135" height="100"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVj-RF-BHS">
-                        <rect key="frame" x="313" y="35" width="46" height="30"/>
-                        <state key="normal" title="Button"/>
-                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bt" destination="zVj-RF-BHS" id="2K4-Wq-TNF"/>
                 <outlet property="myImageView" destination="Scc-pQ-cbR" id="WgC-bH-m7X"/>
                 <outlet property="singerName" destination="WQK-s9-MIN" id="Dq4-MS-e1c"/>
                 <outlet property="songName" destination="ryw-dF-wwA" id="NVT-H4-Xfj"/>

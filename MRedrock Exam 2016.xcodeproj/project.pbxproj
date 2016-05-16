@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F20D1ADD1CE8B462001FE0B5 /* 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F20D1ADC1CE8B462001FE0B5 /* 1.PNG */; };
-		F20D1ADF1CE8B51A001FE0B5 /* 2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F20D1ADE1CE8B51A001FE0B5 /* 2.PNG */; };
 		F20D1AE21CE8B801001FE0B5 /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = F20D1AE11CE8B801001FE0B5 /* ViewController3.m */; };
+		F22807C11CE9586500CF461C /* 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F22807BE1CE9586500CF461C /* 1.PNG */; };
+		F22807C21CE9586500CF461C /* 2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F22807BF1CE9586500CF461C /* 2.PNG */; };
+		F22807C31CE9586500CF461C /* play.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F22807C01CE9586500CF461C /* play.PNG */; };
 		F25AE16B1CE7095900446665 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = F25AE16A1CE7095900446665 /* ViewController1.m */; };
 		F2B0644C1CE8200700271924 /* PlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0644A1CE8200700271924 /* PlaylistCell.m */; };
 		F2B0644D1CE8200700271924 /* PlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B0644B1CE8200700271924 /* PlaylistCell.xib */; };
 		F2B064501CE82B6700271924 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0644F1CE82B6700271924 /* ViewController2.m */; };
-		F2B064521CE86B8500271924 /* play.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F2B064511CE86B8500271924 /* play.PNG */; };
 		F2B064541CE882FB00271924 /* music.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2B064531CE882FB00271924 /* music.plist */; };
 		F2FA0D9D1CE6A247005BB65B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA0D9C1CE6A247005BB65B /* main.m */; };
 		F2FA0DA01CE6A247005BB65B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA0D9F1CE6A247005BB65B /* AppDelegate.m */; };
@@ -28,10 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F20D1ADC1CE8B462001FE0B5 /* 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.PNG; path = ../../../Downloads/1.PNG; sourceTree = "<group>"; };
-		F20D1ADE1CE8B51A001FE0B5 /* 2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.PNG; path = ../../../Downloads/2.PNG; sourceTree = "<group>"; };
 		F20D1AE01CE8B801001FE0B5 /* ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController3.h; sourceTree = "<group>"; };
 		F20D1AE11CE8B801001FE0B5 /* ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
+		F22807BE1CE9586500CF461C /* 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.PNG; sourceTree = "<group>"; };
+		F22807BF1CE9586500CF461C /* 2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.PNG; sourceTree = "<group>"; };
+		F22807C01CE9586500CF461C /* play.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.PNG; sourceTree = "<group>"; };
 		F25AE1691CE7095900446665 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
 		F25AE16A1CE7095900446665 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
 		F2B064491CE8200700271924 /* PlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistCell.h; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 		F2B0644B1CE8200700271924 /* PlaylistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistCell.xib; sourceTree = "<group>"; };
 		F2B0644E1CE82B6700271924 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		F2B0644F1CE82B6700271924 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
-		F2B064511CE86B8500271924 /* play.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.PNG; path = ../../../Downloads/play.PNG; sourceTree = "<group>"; };
 		F2B064531CE882FB00271924 /* music.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = music.plist; sourceTree = "<group>"; };
 		F2FA0D981CE6A247005BB65B /* MRedrock Exam 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MRedrock Exam 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FA0D9C1CE6A247005BB65B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,9 +118,9 @@
 		F2FA0D9B1CE6A247005BB65B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F20D1ADC1CE8B462001FE0B5 /* 1.PNG */,
-				F2B064511CE86B8500271924 /* play.PNG */,
-				F20D1ADE1CE8B51A001FE0B5 /* 2.PNG */,
+				F22807BE1CE9586500CF461C /* 1.PNG */,
+				F22807BF1CE9586500CF461C /* 2.PNG */,
+				F22807C01CE9586500CF461C /* play.PNG */,
 				F2FA0D9C1CE6A247005BB65B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -184,14 +184,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22807C21CE9586500CF461C /* 2.PNG in Resources */,
+				F22807C31CE9586500CF461C /* play.PNG in Resources */,
 				F2B064541CE882FB00271924 /* music.plist in Resources */,
-				F20D1ADF1CE8B51A001FE0B5 /* 2.PNG in Resources */,
-				F20D1ADD1CE8B462001FE0B5 /* 1.PNG in Resources */,
 				F2FA0DAB1CE6A247005BB65B /* LaunchScreen.storyboard in Resources */,
 				F2FA0DA81CE6A247005BB65B /* Assets.xcassets in Resources */,
 				F2FA0DB81CE6AC0E005BB65B /* HotSongCell.xib in Resources */,
 				F2B0644D1CE8200700271924 /* PlaylistCell.xib in Resources */,
-				F2B064521CE86B8500271924 /* play.PNG in Resources */,
+				F22807C11CE9586500CF461C /* 1.PNG in Resources */,
 				F2FA0DA61CE6A247005BB65B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

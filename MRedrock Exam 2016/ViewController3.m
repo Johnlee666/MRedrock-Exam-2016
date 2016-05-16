@@ -24,12 +24,17 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 70.0f;
     [self.view addSubview:self.tableView];
+    [self method];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+    selector: @selector(method)name: @"下载完成"object: nil];
+
+}
+-(void)method{
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
     self.list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
     self.array = [self.list allKeys];
 }
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.array.count;
 }
@@ -39,10 +44,10 @@
     cell.songname.text = self.array[indexPath.row];
     return cell;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:indexPath forKey:@"1"];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"播放" object:nil userInfo:dict];
-}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    NSDictionary *dict = [NSDictionary dictionaryWithObject:indexPath forKey:@"1"];
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"播放" object:nil userInfo:dict];
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

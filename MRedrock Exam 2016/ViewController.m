@@ -61,16 +61,16 @@ static int flag=1;
 
 -(void)downloadmusic{
     if (flag) {
-        flag=0;
         NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
         NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
         NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
-        if (![list valueForKey:[self.contents valueForKey:@"songname"]]) {
+        if (![list objectForKey:[self.contents objectForKey:@"songname"]]) {
             NSURL *URL = [NSURL URLWithString:[self.contents objectForKey:@"downUrl"]];
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]delegate:self delegateQueue:[NSOperationQueue mainQueue]];
             NSURLRequest *request = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:100];
             NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request];
             [task resume];
+            flag=0;
         }
 
     }
@@ -80,14 +80,14 @@ static int flag=1;
     flag = 1;
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3",docDirPath,[self.contents valueForKey:@"songname"]];
-      NSString *filePath1 = [NSString stringWithFormat:@"%@/%@.jpg",docDirPath,[self.contents valueForKey:@"songname"]];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3",docDirPath,[self.contents objectForKey:@"songname"]];
+      NSString *filePath1 = [NSString stringWithFormat:@"%@/%@.jpg",docDirPath,[self.contents objectForKey:@"songname"]];
     NSData *data = [NSData dataWithContentsOfURL:location];
-    NSData *data1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self.contents valueForKey:@"albumpic_big"]]];
+    NSData *data1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self.contents objectForKey:@"albumpic_big"]]];
     [data writeToFile:filePath atomically:YES];
     [data1 writeToFile:filePath1 atomically:YES];
     NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
-    [list setObject:@"1" forKey:[self.contents valueForKey:@"songname"]];
+    [list setObject:@"1" forKey:[self.contents objectForKey:@"songname"]];
     [list writeToFile:plistPath atomically:YES];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"下载完成" object:self];
 }
@@ -111,10 +111,13 @@ static int flag=1;
     NSURL *URL = [NSURL URLWithString:string];
     NSData *data = [NSData dataWithContentsOfURL:URL];
     cell.imageView.image = [UIImage imageWithData:data];
-    [cell.bt addTarget:self action:@selector(downloadmusic) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.bt addTarget:self action:@selector(downloadmusic) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.contents = self.array[indexPath.row];
+    [self downloadmusic];
+}
 
 
 
