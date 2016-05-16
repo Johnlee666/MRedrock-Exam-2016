@@ -39,8 +39,14 @@
     [[NSNotificationCenter defaultCenter] addObserver: self
     selector: @selector(play:)name: @"播放"object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self
-    selector: @selector(method)name: @"下载完成"object: nil];
+    selector: @selector(addsong)name: @"下载完成"object: nil];
     // Do any additional setup after loading the view.
+}
+-(void)addsong{
+    NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
+    self.list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
+    self.array = [self.list allKeys];
 }
 -(void)loop{
     if(self.voicePlayer.numberOfLoops==-1){
