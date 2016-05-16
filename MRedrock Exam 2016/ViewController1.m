@@ -72,7 +72,7 @@
 
     self.songName.text = self.array[self.index];
     NSData *data = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.mp3",docDirPath,self.array[self.index]]];
-    NSLog(@"%@",self.array[self.index]);
+//    NSLog(@"%@",self.array[self.index]);
     NSData *data1 = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.jpg",docDirPath,self.array[self.index]]];
     self.imageView.image = [UIImage imageWithData:data1];
     self.voicePlayer = [[AVAudioPlayer alloc]initWithData:data error:nil];
