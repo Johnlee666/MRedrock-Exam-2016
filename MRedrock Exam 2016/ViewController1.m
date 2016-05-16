@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *next;
 @property (weak, nonatomic) IBOutlet UIButton *last;
 @property AVAudioPlayer *voicePlayer;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 @property (strong, nonatomic)NSTimer *timer;
 @property NSMutableDictionary *list;
 @property NSArray *array;
@@ -26,6 +27,7 @@
 
 @implementation ViewController1
 - (void)viewDidLoad {
+    [self.button addTarget:self action:@selector(loop) forControlEvents:UIControlEventTouchUpInside];
     self.view.backgroundColor = [UIColor colorWithRed:119/255.0 green:178/255.0 blue:252/255.0 alpha:1];
     [super viewDidLoad];
     self.voicePlayer.numberOfLoops = 0;
@@ -38,23 +40,47 @@
     selector: @selector(method)name: @"下载完成"object: nil];
     // Do any additional setup after loading the view.
 }
+-(void)loop{
+    if(self.voicePlayer.numberOfLoops==-1){
+        self.voicePlayer.numberOfLoops = 0;
+    }
+    if (self.voicePlayer.numberOfLoops ==0) {
+        self.voicePlayer.numberOfLoops = 1;
+    }
+    if (self.voicePlayer.numberOfLoops==1) {
+        self.voicePlayer.numberOfLoops =-1;
+    }
+}
 -(void)method{
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
     self.list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
     self.array = [self.list allKeys];
-    if(self.array.count==0)
+    if(self.array.count==0){
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    判断文件是否存在
+    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {//如果文件不存在则创建
+        //更改到待操作的目录下
+        [fileManager changeCurrentDirectoryPath:[plistPath stringByExpandingTildeInPath]];
+        NSData *d = [[NSData alloc]init];
+        [fileManager createFileAtPath:plistPath contents:d attributes:nil];
+        NSDictionary *dict = [[NSDictionary alloc]init];
+        [dict writeToFile:plistPath atomically:YES];
+        }
         return;
+    }
+
     self.songName.text = self.array[self.index];
     NSData *data = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.mp3",docDirPath,self.array[self.index]]];
-//    NSLog(@"%@",self.array[self.index]);
+    NSLog(@"%@",self.array[self.index]);
     NSData *data1 = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.jpg",docDirPath,self.array[self.index]]];
     self.imageView.image = [UIImage imageWithData:data1];
     self.voicePlayer = [[AVAudioPlayer alloc]initWithData:data error:nil];
-//    NSLog(@"%@",plistPath);
+    NSLog(@"%@",plistPath);
     self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updatePlayprogress) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
+    
 -(IBAction)tapProgressBg:(UITapGestureRecognizer *)sender{
     CGPoint point = [sender locationInView:sender.view];
     self.voicePlayer.currentTime = (point.x/sender.view.frame.size.width)*self.voicePlayer.duration;

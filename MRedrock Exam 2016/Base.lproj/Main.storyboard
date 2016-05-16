@@ -162,12 +162,17 @@
                                     <action selector="sounds:" destination="47d-Pz-XCA" eventType="touchUpInside" id="49C-4l-RX3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTG-HR-Hw1">
+                                <rect key="frame" x="257" y="582" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="button" destination="VTG-HR-Hw1" id="wxa-fg-TQC"/>
                         <outlet property="imageView" destination="99S-hh-mbD" id="VMN-Iq-sgx"/>
                         <outlet property="last" destination="E4I-dt-LHF" id="ytc-EE-3Jg"/>
                         <outlet property="next" destination="qnQ-lP-TXZ" id="zvJ-Jw-eK6"/>

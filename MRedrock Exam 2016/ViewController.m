@@ -89,6 +89,8 @@ static int flag=1;
     NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
     [list setObject:@"1" forKey:[self.contents objectForKey:@"songname"]];
     [list writeToFile:plistPath atomically:YES];
+//    [NSKeyedArchiver archiveRootObject:list toFile:plistPath];
+
     [[NSNotificationCenter defaultCenter]postNotificationName:@"下载完成" object:self];
 }
 
