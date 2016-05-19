@@ -15,7 +15,6 @@
 		F2B0644C1CE8200700271924 /* PlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0644A1CE8200700271924 /* PlaylistCell.m */; };
 		F2B0644D1CE8200700271924 /* PlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B0644B1CE8200700271924 /* PlaylistCell.xib */; };
 		F2B064501CE82B6700271924 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0644F1CE82B6700271924 /* ViewController2.m */; };
-		F2B064541CE882FB00271924 /* music.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2B064531CE882FB00271924 /* music.plist */; };
 		F2FA0D9D1CE6A247005BB65B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA0D9C1CE6A247005BB65B /* main.m */; };
 		F2FA0DA01CE6A247005BB65B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA0D9F1CE6A247005BB65B /* AppDelegate.m */; };
 		F2FA0DA31CE6A247005BB65B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA0DA21CE6A247005BB65B /* ViewController.m */; };
@@ -40,7 +39,6 @@
 		F2B0644B1CE8200700271924 /* PlaylistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistCell.xib; sourceTree = "<group>"; };
 		F2B0644E1CE82B6700271924 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		F2B0644F1CE82B6700271924 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
-		F2B064531CE882FB00271924 /* music.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = music.plist; sourceTree = "<group>"; };
 		F2FA0D981CE6A247005BB65B /* MRedrock Exam 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MRedrock Exam 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FA0D9C1CE6A247005BB65B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2FA0D9E1CE6A247005BB65B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				F2FA0DA91CE6A247005BB65B /* LaunchScreen.storyboard */,
 				F2FA0DAC1CE6A247005BB65B /* Info.plist */,
 				F2FA0D9B1CE6A247005BB65B /* Supporting Files */,
-				F2B064531CE882FB00271924 /* music.plist */,
 			);
 			path = "MRedrock Exam 2016";
 			sourceTree = "<group>";
@@ -186,7 +183,6 @@
 			files = (
 				F22807C21CE9586500CF461C /* 2.PNG in Resources */,
 				F22807C31CE9586500CF461C /* play.PNG in Resources */,
-				F2B064541CE882FB00271924 /* music.plist in Resources */,
 				F2FA0DAB1CE6A247005BB65B /* LaunchScreen.storyboard in Resources */,
 				F2FA0DA81CE6A247005BB65B /* Assets.xcassets in Resources */,
 				F2FA0DB81CE6AC0E005BB65B /* HotSongCell.xib in Resources */,

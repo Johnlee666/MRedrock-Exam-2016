@@ -8,10 +8,9 @@
 
 #import "ViewController3.h"
 #include "PlaylistCell.h"
-@interface ViewController3 ()
+@interface ViewController3 ()<UITableViewDataSource,UITableViewDelegate>
 @property NSMutableDictionary *list;
 @property NSArray *array;
-//@property NSMutableDictionary *contents;
 @property UITableView *tableView;
 @end
 
@@ -24,18 +23,20 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 70.0f;
     [self.view addSubview:self.tableView];
-    [self method];
+    [self showList];
     [[NSNotificationCenter defaultCenter] addObserver: self
-    selector: @selector(method)name: @"下载完成"object: nil];
+    selector: @selector(showList)name: @"下载完成"object: nil];
 
 }
--(void)method{
+-(void)showList{
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
     self.list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
     self.array = [self.list allKeys];
     [self.tableView reloadData];
+    [self.view resignFirstResponder];
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.array.count;
 }
@@ -56,6 +57,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

@@ -10,24 +10,28 @@
 #import <AVFoundation/AVFoundation.h>
 #import "HotSongCell.h"
 #define  url @"http://route.showapi.com/213-4?showapi_sign=a3b9cb3921c74e0ba31d2d7b2fbbed77&showapi_appid=6091&topid=5"
+
 @interface ViewController ()<AVAudioPlayerDelegate,UITableViewDataSource,UITableViewDelegate,NSURLSessionDownloadDelegate>
+
 @property (nonatomic, strong, readwrite) UITableView *tableView;
-@property NSMutableDictionary *contents;
-@property NSMutableDictionary *dict;
-@property NSMutableArray *array;
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
+
 @property (strong, nonatomic) AVAudioPlayer *voicePlayer;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic)NSTimer *timer;
-@property NSMutableArray *list;
+
+@property NSMutableArray *array;
+@property NSMutableDictionary *contents;
+@property NSMutableDictionary *dict;
+
 @end
 
 @implementation ViewController
 static int flag=1;
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     [self getData];
+    
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, 375, 500) style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -64,13 +68,14 @@ static int flag=1;
         NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
         NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
         NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
+        
         if (![list objectForKey:[self.contents objectForKey:@"songname"]]) {
+            flag=0;
             NSURL *URL = [NSURL URLWithString:[self.contents objectForKey:@"downUrl"]];
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]delegate:self delegateQueue:[NSOperationQueue mainQueue]];
             NSURLRequest *request = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:100];
             NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request];
             [task resume];
-            flag=0;
         }
 
     }
@@ -80,22 +85,21 @@ static int flag=1;
     flag = 1;
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3",docDirPath,[self.contents objectForKey:@"songname"]];
-      NSString *filePath1 = [NSString stringWithFormat:@"%@/%@.jpg",docDirPath,[self.contents objectForKey:@"songname"]];
-    NSData *data = [NSData dataWithContentsOfURL:location];
-    NSData *data1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self.contents objectForKey:@"albumpic_big"]]];
-    [data writeToFile:filePath atomically:YES];
-    [data1 writeToFile:filePath1 atomically:YES];
+    NSString *musicPath = [NSString stringWithFormat:@"%@/%@.mp3",docDirPath,[self.contents objectForKey:@"songname"]];
+      NSString *imagePath = [NSString stringWithFormat:@"%@/%@.jpg",docDirPath,[self.contents objectForKey:@"songname"]];
+    
+    NSData *musicData = [NSData dataWithContentsOfURL:location];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self.contents objectForKey:@"albumpic_big"]]];
+    [musicData writeToFile:musicPath atomically:YES];
+    [imageData writeToFile:imagePath atomically:YES];
+    
     NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
     [list setObject:@"1" forKey:[self.contents objectForKey:@"songname"]];
     [list writeToFile:plistPath atomically:YES];
-//    [NSKeyedArchiver archiveRootObject:list toFile:plistPath];
-
     [[NSNotificationCenter defaultCenter]postNotificationName:@"下载完成" object:self];
 }
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
-//     NSLog(@"%f",totalBytesWritten/(double)totalBytesExpectedToWrite);
     [self.progressView setProgress:totalBytesWritten/(double)totalBytesExpectedToWrite];
 }
 
@@ -104,23 +108,25 @@ static int flag=1;
     return self.array.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HotSongCell *cell = (HotSongCell *)[[[NSBundle mainBundle]loadNibNamed:@"HotSongCell" owner:self options:nil]lastObject];
     self.contents = self.array[indexPath.row];
     cell.songName.text = [self.contents objectForKey:@"songname"];
     cell.singerName.text = [self.contents objectForKey:@"singername"];
+    
     NSString *string = [self.contents objectForKey:@"albumpic_small"];
     NSURL *URL = [NSURL URLWithString:string];
     NSData *data = [NSData dataWithContentsOfURL:URL];
     cell.imageView.image = [UIImage imageWithData:data];
-//    [cell.bt addTarget:self action:@selector(downloadmusic) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.contents = self.array[indexPath.row];
     [self downloadmusic];
 }
-
 
 
 - (void)didReceiveMemoryWarning {
