@@ -6,9 +6,9 @@
 //  Copyright © 2016年 李展. All rights reserved.
 //
 
-#import "PlaylistCell.h"
+#import "LZPlaylistCell.h"
 
-@implementation PlaylistCell
+@implementation LZPlaylistCell
 
 - (void)awakeFromNib {
     // Initialization code

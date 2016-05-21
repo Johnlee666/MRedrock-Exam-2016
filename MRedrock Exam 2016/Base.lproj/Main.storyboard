@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="47d-Pz-XCA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="47d-Pz-XCA">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="b" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="b" id="BYZ-38-t0r" customClass="LZListView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -39,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="-3868.5" y="-597.5"/>
         </scene>
-        <!--View Controller3-->
+        <!--Record View-->
         <scene sceneID="Rrl-01-u6B">
             <objects>
-                <viewController storyboardIdentifier="d" id="xMA-Yb-DfE" customClass="ViewController3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="d" id="xMA-Yb-DfE" customClass="LZRecordView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wOL-x6-1Zz"/>
                         <viewControllerLayoutGuide type="bottom" id="mMT-ZH-Vuf"/>
@@ -58,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="-4319" y="-1308"/>
         </scene>
-        <!--View Controller2-->
+        <!--Search View-->
         <scene sceneID="Xkw-RB-L6c">
             <objects>
-                <viewController storyboardIdentifier="c" id="XnG-ls-MnE" customClass="ViewController2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="c" id="XnG-ls-MnE" customClass="LZSearchView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XIR-NK-nxq"/>
                         <viewControllerLayoutGuide type="bottom" id="PPF-hv-vNp"/>
@@ -97,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="-3624.5" y="-1307.5"/>
         </scene>
-        <!--View Controller1-->
+        <!--Player View-->
         <scene sceneID="THD-gq-FXr">
             <objects>
-                <viewController storyboardIdentifier="a" id="47d-Pz-XCA" customClass="ViewController1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="a" id="47d-Pz-XCA" customClass="LZPlayerView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PdS-pd-odA"/>
                         <viewControllerLayoutGuide type="bottom" id="r9Y-0D-4f2"/>
@@ -166,6 +165,9 @@
                                 <rect key="frame" x="257" y="582" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="N8Q-ic-Tel">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -194,6 +196,7 @@
     <resources>
         <image name="1.PNG" width="84" height="84"/>
         <image name="2.PNG" width="90" height="79"/>
+        <image name="background.jpg" width="1024" height="768"/>
         <image name="play.PNG" width="136" height="132"/>
     </resources>
 </document>

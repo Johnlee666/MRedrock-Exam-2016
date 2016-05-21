@@ -6,8 +6,8 @@
 //  Copyright © 2016年 李展. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LZListView.h"
 
-@interface ViewController1 : UIViewController
+@interface LZPlayerView : UIViewController
 
 @end

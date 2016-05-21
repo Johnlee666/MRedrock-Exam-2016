@@ -6,11 +6,11 @@
 //  Copyright © 2016年 李展. All rights reserved.
 //
 
-#import "ViewController1.h"
-#import "ViewController3.h"
+#import "LZPlayerView.h"
+#import "LZRecordView.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController1 ()<AVAudioPlayerDelegate>
+@interface LZPlayerView ()<AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songName;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -28,7 +28,7 @@
 @property NSInteger index;
 @end
 
-@implementation ViewController1
+@implementation LZPlayerView
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.button addTarget:self action:@selector(loop) forControlEvents:UIControlEventTouchUpInside];
@@ -36,8 +36,10 @@
     selector: @selector(play:)name: @"播放"object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self
     selector: @selector(addsong)name: @"下载完成"object: nil];
-    self.view.backgroundColor = [UIColor colorWithRed:38/255.0 green:185/255.0 blue:96/255.0 alpha:1];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(way:) name:@"删除列表" object:nil];
+//    self.view.backgroundColor = [UIColor colorWithRed:38/255.0 green:185/255.0 blue:96/255.0 alpha:1];
     self.index = 0;
+    self.progressview.progress = 0;
 //    self.voicePlayer.numberOfLoops = 0;
 //    self.voicePlayer.volume =0.5;
     self.voicePlayer.delegate = self;
@@ -46,6 +48,8 @@
    
     // Do any additional setup after loading the view.
 }
+
+
 -(void)addsong{
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
@@ -65,6 +69,16 @@
     }
 }
 
+
+-(void)way:(NSNotification *)notification{
+    NSString *name = [notification.object valueForKey:@"row"];
+    NSInteger i = [name integerValue];
+    if (self.index >=i && self.index != 0) {
+        self.index--;
+    }
+    [self addsong];
+}
+
 - (void)play:(NSNotification *)notifaction {
     NSString *name = [notifaction.object valueForKey:@"row"];
     NSInteger i = [name integerValue];
@@ -77,6 +91,7 @@
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
     self.list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
     self.array = [self.list allKeys];
+    NSLog(@"%@",plistPath);
     if(self.array.count==0){
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
@@ -112,6 +127,7 @@
     sender.selected =!sender.selected;
 }
 
+
 -(IBAction)ButtonAction:(UIButton *)sender{
     [self.voicePlayer stop];
     if (sender.tag) {
@@ -131,6 +147,7 @@
 //    [self.voicePlayer play];
 }
 
+
 -(IBAction)sounds:(UIButton *)sender{
     if (sender.tag) {
         if (self.voicePlayer.volume<1.0)
@@ -142,10 +159,12 @@
     }
 }
 
+
 -(void)updatePlayprogress{
     float progress = self.voicePlayer.currentTime/self.voicePlayer.duration;
     [self.progressview setProgress:progress animated:true];
 }
+
 
 -(IBAction)tapProgressBg:(UITapGestureRecognizer *)sender{
     CGPoint point = [sender locationInView:sender.view];
@@ -153,13 +172,8 @@
     [self updatePlayprogress];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    self.index++;
+    //    self.index++;
     if (self.index != self.array.count-1)
         self.index++;
     else
@@ -174,6 +188,13 @@
     //    [self.voicePlayer play];
     //    NSLog(@"音乐播放完成...");
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 
 
 @end

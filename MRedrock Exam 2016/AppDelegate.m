@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "ViewController1.h"
-#import "ViewController2.h"
-#import "ViewController3.h"
+#import "LZListView.h"
+#import "LZPlayerView.h"
+#import "LZSearchView.h"
+#import "LZRecordView.h"
 @interface AppDelegate ()
 
 @end
@@ -26,12 +26,12 @@
     view1.title = @"热歌榜";
     UIViewController *view2 = [storyboard instantiateViewControllerWithIdentifier:@"c"];
     view2.title = @"搜索界面";
-    ViewController3 *view3 = [storyboard instantiateViewControllerWithIdentifier:@"d"];
+    LZRecordView *view3 = [storyboard instantiateViewControllerWithIdentifier:@"d"];
     view3.title =@"播放列表";
     UITabBarController *bar = [[UITabBarController alloc]init];
     bar.viewControllers = @[view,view1,view2,view3];
-    _window.rootViewController=bar;
-    _window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController=bar;
+    self.window.backgroundColor = [UIColor whiteColor];
     // Override point for customization after application launch.
     return YES;
 }

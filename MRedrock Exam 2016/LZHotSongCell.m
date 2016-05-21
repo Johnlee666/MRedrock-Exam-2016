@@ -6,9 +6,9 @@
 //  Copyright © 2016年 李展. All rights reserved.
 //
 
-#import "HotSongCell.h"
+#import "LZHotsongCell.h"
 
-@implementation HotSongCell
+@implementation LZHotsongCell
 
 - (void)awakeFromNib {
     // Initialization code

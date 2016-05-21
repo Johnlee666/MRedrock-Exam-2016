@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HotSongCell : UITableViewCell
+@interface LZHotsongCell : UITableViewCell
 //@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *singerName;
 @property (weak, nonatomic) IBOutlet UILabel *songName;

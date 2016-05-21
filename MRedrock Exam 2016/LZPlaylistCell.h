@@ -1,5 +1,5 @@
 //
-//  ViewController3.h
+//  PlaylistCell.h
 //  MRedrock Exam 2016
 //
 //  Created by 李展 on 16/5/15.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController3 : UIViewController
+@interface LZPlaylistCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *songname;
 
 @end

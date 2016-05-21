@@ -6,15 +6,15 @@
 //  Copyright © 2016年 李展. All rights reserved.
 //
 
-#import "ViewController3.h"
-#include "PlaylistCell.h"
-@interface ViewController3 ()<UITableViewDataSource,UITableViewDelegate>
+#import "LZRecordView.h"
+#include "LZPlaylistCell.h"
+@interface LZRecordView ()<UITableViewDataSource,UITableViewDelegate>
 @property NSMutableDictionary *list;
-@property NSArray *array;
+@property NSMutableArray *array;
 @property UITableView *tableView;
 @end
 
-@implementation ViewController3
+@implementation LZRecordView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +32,7 @@
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
     self.list = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
-    self.array = [self.list allKeys];
+    self.array = [NSMutableArray arrayWithArray:[self.list allKeys]];
     [self.tableView reloadData];
     [self.view resignFirstResponder];
 }
@@ -42,7 +42,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PlaylistCell *cell = (PlaylistCell *)[[[NSBundle mainBundle]loadNibNamed:@"PlaylistCell" owner:self options:nil]lastObject];
+    LZPlaylistCell *cell = (LZPlaylistCell *)[[[NSBundle mainBundle]loadNibNamed:@"LZPlaylistCell" owner:self options:nil]lastObject];
     cell.songname.text = self.array[indexPath.row];
     return cell;
 }
@@ -53,6 +53,23 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"播放" object:dict];
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *string = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    NSDictionary *dict =[NSDictionary dictionaryWithObject:string forKey:@"row"];
+    NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    NSString *plistPath = [docDirPath stringByAppendingString:@"/music.plist"];
+    NSString *musicPath = [NSString stringWithFormat:@"%@/%@.mp3",docDirPath,self.array[indexPath.row]];
+    NSString *imagePath = [NSString stringWithFormat:@"%@/%@.jpg",docDirPath,self.array[indexPath.row]];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:musicPath error:nil];
+    [fileManager removeItemAtPath:imagePath error:nil];
+    [self.list removeObjectForKey:self.array[indexPath.row]];
+    [self.array removeObjectAtIndex:(NSUInteger)indexPath.row];
+    [self.list writeToFile:plistPath atomically:YES];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    [tableView reloadData];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"删除列表" object:dict];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

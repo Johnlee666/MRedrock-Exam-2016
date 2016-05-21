@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController2 : UIViewController
+@interface LZSearchView : UIViewController
 
 @end
