@@ -12,6 +12,7 @@
 		F22807C11CE9586500CF461C /* 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F22807BE1CE9586500CF461C /* 1.PNG */; };
 		F22807C21CE9586500CF461C /* 2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F22807BF1CE9586500CF461C /* 2.PNG */; };
 		F22807C31CE9586500CF461C /* play.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F22807C01CE9586500CF461C /* play.PNG */; };
+		F2305B7A1D0FF65300AE62E0 /* AudioPlayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2305B791D0FF65300AE62E0 /* AudioPlayTool.m */; };
 		F25AE16B1CE7095900446665 /* LZPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F25AE16A1CE7095900446665 /* LZPlayerView.m */; };
 		F2B0644C1CE8200700271924 /* LZPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0644A1CE8200700271924 /* LZPlaylistCell.m */; };
 		F2B0644D1CE8200700271924 /* LZPlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B0644B1CE8200700271924 /* LZPlaylistCell.xib */; };
@@ -31,9 +32,12 @@
 		F20891E71CF013F500EC7E14 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		F20D1AE01CE8B801001FE0B5 /* LZRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZRecordView.h; sourceTree = "<group>"; };
 		F20D1AE11CE8B801001FE0B5 /* LZRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZRecordView.m; sourceTree = "<group>"; };
+		F21B8A841CF1A549001FF97F /* play1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play1.png; sourceTree = "<group>"; };
 		F22807BE1CE9586500CF461C /* 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.PNG; sourceTree = "<group>"; };
 		F22807BF1CE9586500CF461C /* 2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.PNG; sourceTree = "<group>"; };
 		F22807C01CE9586500CF461C /* play.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.PNG; sourceTree = "<group>"; };
+		F2305B781D0FF65300AE62E0 /* AudioPlayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayTool.h; sourceTree = "<group>"; };
+		F2305B791D0FF65300AE62E0 /* AudioPlayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayTool.m; sourceTree = "<group>"; };
 		F25AE1691CE7095900446665 /* LZPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPlayerView.h; sourceTree = "<group>"; };
 		F25AE16A1CE7095900446665 /* LZPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZPlayerView.m; sourceTree = "<group>"; };
 		F2B064491CE8200700271924 /* LZPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPlaylistCell.h; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				F2FA0D9E1CE6A247005BB65B /* AppDelegate.h */,
+				F2305B781D0FF65300AE62E0 /* AudioPlayTool.h */,
+				F2305B791D0FF65300AE62E0 /* AudioPlayTool.m */,
 				F2FA0D9F1CE6A247005BB65B /* AppDelegate.m */,
 				F25AE1691CE7095900446665 /* LZPlayerView.h */,
 				F25AE16A1CE7095900446665 /* LZPlayerView.m */,
@@ -120,6 +126,7 @@
 				F20891E71CF013F500EC7E14 /* background.jpg */,
 				F22807BE1CE9586500CF461C /* 1.PNG */,
 				F22807BF1CE9586500CF461C /* 2.PNG */,
+				F21B8A841CF1A549001FF97F /* play1.png */,
 				F22807C01CE9586500CF461C /* play.PNG */,
 				F2FA0D9C1CE6A247005BB65B /* main.m */,
 			);
@@ -207,6 +214,7 @@
 				F25AE16B1CE7095900446665 /* LZPlayerView.m in Sources */,
 				F2B0644C1CE8200700271924 /* LZPlaylistCell.m in Sources */,
 				F2FA0DA31CE6A247005BB65B /* LZListView.m in Sources */,
+				F2305B7A1D0FF65300AE62E0 /* AudioPlayTool.m in Sources */,
 				F2FA0DA01CE6A247005BB65B /* AppDelegate.m in Sources */,
 				F2FA0DB71CE6AC0E005BB65B /* LZHotSongCell.m in Sources */,
 				F20D1AE21CE8B801001FE0B5 /* LZRecordView.m in Sources */,
@@ -321,6 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MRedrock Exam 2016/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.MRedrock-Exam-2016";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -332,6 +341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MRedrock Exam 2016/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.MRedrock-Exam-2016";
 				PRODUCT_NAME = "$(TARGET_NAME)";

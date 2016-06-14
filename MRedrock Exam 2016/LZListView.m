@@ -95,6 +95,9 @@ static int flag=1;
     [list setObject:@"1" forKey:[self.contents objectForKey:@"songname"]];
     [list writeToFile:plistPath atomically:YES];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"下载完成" object:self];
+//    if (self.progressView.progress == 90.0) {
+//        flag = 1;
+//    }
     flag = 1;
     self.progressView.progress = 0;
 }

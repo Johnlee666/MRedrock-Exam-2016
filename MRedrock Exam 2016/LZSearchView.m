@@ -24,7 +24,7 @@
 
 static int flag=1;
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     self.progressView.progress = 0;
     [self.bt addTarget:self action:@selector(getData) forControlEvents:UIControlEventTouchUpInside];
     self.textfield.delegate = self;
